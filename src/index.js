@@ -14,6 +14,11 @@ async function displayWeather(location) {
     // json method returns a promise, we await it to get the json data and turn it into catData
     const weatherData = await response.json();
 
+    //GIF RESPONSE
+
+    //const gif response = URL + weatherdata.currentconditions
+    //append below
+
     console.log(weatherData);
 
     //append results to DOM
@@ -148,6 +153,15 @@ searchButton.addEventListener("click", () => {
     let location = searchBar.value;
     displayWeather(location);
 })
+
+//so you can press Enter key on the search bar
+
+searchBar.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        let location = searchBar.value;
+        displayWeather(location);
+    }
+});
 
 // search.addEventListener("click", () => {
 //     let searchInput = input.value;
