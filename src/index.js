@@ -3,7 +3,7 @@ const searchButton = document.querySelector(".weather-search");
 const searchBar = document.querySelector(".search-input")
 const resultsDiv = document.querySelector(".weather-results");
 
-async function displayWeather(location) {
+async function getWeather(location) {
     try {
         resultsDiv.innerHTML = "";
         
@@ -23,10 +23,10 @@ async function displayWeather(location) {
 
         //location
 
-        // const thisLocationTitle = document.createElement("div");
-        // thisLocationTitle.classList.add("weatherLabel");
-        // thisLocationTitle.textContent = "Location";
-        // resultsDiv.appendChild(thisLocationTitle);
+        const thisLocationTitle = document.createElement("div");
+        thisLocationTitle.classList.add("weatherLabel");
+        thisLocationTitle.textContent = "Location";
+        resultsDiv.appendChild(thisLocationTitle);
 
         const thisLocation = document.createElement("div");
         thisLocation.classList.add("weatherResult");
@@ -168,7 +168,7 @@ function appendDOM(weatherData, giphyData) {
 
 searchButton.addEventListener("click", () => {
     let location = searchBar.value;
-    displayWeather(location);
+    getWeather(location);
 })
 
 //so you can press Enter key on the search bar
@@ -176,7 +176,7 @@ searchButton.addEventListener("click", () => {
 searchBar.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         let location = searchBar.value;
-        displayWeather(location);
+        getWeather(location);
     }
 });
 
