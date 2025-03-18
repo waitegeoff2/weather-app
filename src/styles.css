@@ -15,4 +15,58 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.search-location {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 10px;
+}
+
+.search-input {
+    border-radius: 5px;
+    border-style: none;
+    height: 30px;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.weather-search {
+    padding: 2px;
+    background-color: rgb(65, 65, 245);
+    border-radius: 5px;
+    color: white;
+}
+
+.weather-results {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.weatherLabel {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.weatherResult {
+    font-size: 16px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.forecastHeading {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 25px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    
 }

@@ -14,6 +14,8 @@ async function displayWeather(location) {
     // json method returns a promise, we await it to get the json data and turn it into catData
     const weatherData = await response.json();
 
+    console.log(weatherData);
+
     //append results to DOM
 
     //location
