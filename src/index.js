@@ -15,6 +15,11 @@ async function displayWeather(location) {
     // json method returns a promise, we await it to get the json data and turn it into catData
     const weatherData = await response.json();
 
+    const giphyResponse = await fetch("https://api.giphy.com/v1/gifs/translate?api_key=hI6ElrMJLG0BBrhQgzlSKBiKrYPdY2eU&s=" + weatherData.currentConditions.conditions, {mode: 'cors'})
+    const weatherGIPHY = await giphyResponse.json();
+
+    console.log(weatherGIPHY);
+
     //GIF RESPONSE
 
     //const gif response = URL + weatherdata.currentconditions
@@ -148,6 +153,13 @@ async function displayWeather(location) {
     tmrwLow.classList.add("weatherResult");
     tmrwLow.textContent = weatherData.days[1].tempmin;
     resultsDiv.appendChild(tmrwLow);
+
+    //add gif
+    const weatherGIF = document.createElement("img");
+    weatherGIF.classList.add("weatherGIF");
+    weatherGIF.src = weatherGIPHY.data.images.original.url;
+    resultsDiv.appendChild(weatherGIF);
+
 } catch (error) {
     alert("Not a valid location, please enter a new one.");
 }
