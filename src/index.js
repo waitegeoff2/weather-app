@@ -5,6 +5,7 @@ const resultsDiv = document.querySelector(".weather-results");
 
 async function displayWeather(location) {
 
+    try {
     //ADD TRY CATCH
 
     resultsDiv.innerHTML = "";
@@ -147,6 +148,9 @@ async function displayWeather(location) {
     tmrwLow.classList.add("weatherResult");
     tmrwLow.textContent = weatherData.days[1].tempmin;
     resultsDiv.appendChild(tmrwLow);
+} catch (error) {
+    alert("Not a valid location, please enter a new one.");
+}
 }
 
 searchButton.addEventListener("click", () => {
