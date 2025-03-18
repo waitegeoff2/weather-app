@@ -14,7 +14,7 @@ const resultsDiv = document.querySelector(".weather-results");
 
 
 
-async function getWeather(location) {
+async function displayWeather(location) {
 
     resultsDiv.innerHTML = "";
     
@@ -23,11 +23,77 @@ async function getWeather(location) {
     // json method returns a promise, we await it to get the json data and turn it into catData
     const weatherData = await response.json();
 
+    //append results to DOM
+
+    //location
+
+    const thisLocationTitle = document.createElement("div");
+    thisLocationTitle.classList.add("weatherLabel");
+    thisLocationTitle.textContent = "Location";
+    resultsDiv.appendChild(thisLocationTitle);
+
     const thisLocation = document.createElement("div");
-    thisLocation.classList.add("thisLocation");
-    thisLocation.textContent = "Location: " + weatherData.resolvedAddress;
+    thisLocation.classList.add("weatherResult");
+    thisLocation.textContent = weatherData.resolvedAddress;
     resultsDiv.appendChild(thisLocation);
+
+    //conditions
+
+    const conditionsTitle = document.createElement("div");
+    conditionsTitle.classList.add("weatherLabel");
+    conditionsTitle.textContent = "Current Conditions";
+    resultsDiv.appendChild(conditionsTitle);
+
+    const currentConditions = document.createElement("div");
+    currentConditions.classList.add("weatherResult");
+    currentConditions.textContent = weatherData.currentConditions.conditions;
+    resultsDiv.appendChild(currentConditions);
+
+    //temperature
     
+    const tempTitle = document.createElement("div");
+    tempTitle.classList.add("weatherLabel");
+    tempTitle.textContent = "Current Temperature";
+    resultsDiv.appendChild(tempTitle);
+
+    const currentTemp = document.createElement("div");
+    currentTemp.classList.add("weatherResult");
+    currentTemp.textContent = weatherData.currentConditions.temp;
+    resultsDiv.appendChild(currentTemp);
+
+    //feels like
+    const feelsLikeTitle = document.createElement("div");
+    feelsLikeTitle.classList.add("weatherLabel");
+    feelsLikeTitle.textContent = "Feels Like (Temp)";
+    resultsDiv.appendChild(feelsLikeTitle);
+
+    const feelsLike = document.createElement("div");
+    feelsLike.classList.add("weatherResult");
+    feelsLike.textContent = weatherData.currentConditions.feelslike;
+    resultsDiv.appendChild(feelsLike);
+
+    //precip prob
+    const precipProbTitle = document.createElement("div");
+    precipProbTitle.classList.add("weatherLabel");
+    precipProbTitle.textContent = "Probability of Precipitation (%)";
+    resultsDiv.appendChild(precipProbTitle);
+
+    const precipProb = document.createElement("div");
+    precipProb.classList.add("weatherResult");
+    precipProb.textContent = weatherData.currentConditions.precipprob;
+    resultsDiv.appendChild(precipProb);
+
+    //uv index
+
+    //sunrise time
+
+    //sunset time
+
+    //forecast heading
+
+    //tomorrow's high
+
+    //tomorrow's low
 
     console.log(weatherData);
     console.log(weatherData.resolvedAddress);
@@ -44,10 +110,10 @@ async function getWeather(location) {
 
 searchButton.addEventListener("click", () => {
     let location = searchBar.value;
-    getWeather(location);
+    displayWeather(location);
 })
 
-getWeather("toronto");
+displayWeather("toronto");
 
 // search.addEventListener("click", () => {
 //     let searchInput = input.value;
