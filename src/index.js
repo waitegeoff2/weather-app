@@ -3,17 +3,6 @@ const searchButton = document.querySelector(".weather-search");
 const searchBar = document.querySelector(".search-input")
 const resultsDiv = document.querySelector(".weather-results");
 
-// fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Toronto?unitGroup=metric&key=8AP37SHUDAWNDGZNJLSLFKNE9&contentType=json', {mode: 'cors'})
-//     .then(function(response) {
-//        return response.json();
-//     })
-//     .then(function(response) {
-//        console.log(response.currentConditions.temp);
-//        console.log(response.currentConditions);
-//     });
-
-
-
 async function displayWeather(location) {
 
     resultsDiv.innerHTML = "";
@@ -85,15 +74,71 @@ async function displayWeather(location) {
 
     //uv index
 
+    const UVTitle = document.createElement("div");
+    UVTitle.classList.add("weatherLabel");
+    UVTitle.textContent = "UV Index";
+    resultsDiv.appendChild(UVTitle);
+
+    const UVIndex = document.createElement("div");
+    UVIndex.classList.add("weatherResult");
+    UVIndex.textContent = weatherData.currentConditions.uvindex;
+    resultsDiv.appendChild(UVIndex);
+
     //sunrise time
+
+    const SunriseTitle = document.createElement("div");
+    SunriseTitle.classList.add("weatherLabel");
+    SunriseTitle.textContent = "Sunrise Time";
+    resultsDiv.appendChild(SunriseTitle);
+
+    const sunriseTime = document.createElement("div");
+    sunriseTime.classList.add("weatherResult");
+    sunriseTime.textContent = weatherData.currentConditions.sunrise;
+    resultsDiv.appendChild(sunriseTime);
 
     //sunset time
 
+    const sunsetTitle = document.createElement("div");
+    sunsetTitle.classList.add("weatherLabel");
+    sunsetTitle.textContent = "Sunset Time";
+    resultsDiv.appendChild(sunsetTitle);
+
+    const sunsetTime = document.createElement("div");
+    sunsetTime.classList.add("weatherResult");
+    sunsetTime.textContent = weatherData.currentConditions.sunset;
+    resultsDiv.appendChild(sunsetTime);
+
     //forecast heading
+
+    const forecastHeading = document.createElement("div");
+    forecastHeading.classList.add("forecastHeading");
+    forecastHeading.textContent = "Tomorrow's Forecast";
+    resultsDiv.appendChild(forecastHeading);
 
     //tomorrow's high
 
+    const highTmrwTitle = document.createElement("div");
+    highTmrwTitle.classList.add("weatherLabel");
+    highTmrwTitle.textContent = "Tomorrow's Forecasted High";
+    resultsDiv.appendChild(highTmrwTitle);
+
+    const tmrwHigh = document.createElement("div");
+    tmrwHigh.classList.add("weatherResult");
+    tmrwHigh.textContent = weatherData.days[1].tempmax;
+    resultsDiv.appendChild(tmrwHigh);
+
     //tomorrow's low
+
+    const lowTmrwTitle = document.createElement("div");
+    lowTmrwTitle.classList.add("weatherLabel");
+    lowTmrwTitle.textContent = "Tomorrow's Forecasted Low";
+    resultsDiv.appendChild(lowTmrwTitle);
+
+    const tmrwLow = document.createElement("div");
+    tmrwLow.classList.add("weatherResult");
+    tmrwLow.textContent = weatherData.days[1].tempmin;
+    resultsDiv.appendChild(tmrwLow);
+
 
     console.log(weatherData);
     console.log(weatherData.resolvedAddress);
@@ -131,4 +176,14 @@ displayWeather("toronto");
 //     .catch(function(err) {
 //         console.log("Error:" + err);
 //     });
-// })   
+// })
+
+
+// fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Toronto?unitGroup=metric&key=8AP37SHUDAWNDGZNJLSLFKNE9&contentType=json', {mode: 'cors'})
+//     .then(function(response) {
+//        return response.json();
+//     })
+//     .then(function(response) {
+//        console.log(response.currentConditions.temp);
+//        console.log(response.currentConditions);
+//     });
