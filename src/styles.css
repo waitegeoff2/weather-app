@@ -4,5 +4,15 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: lightblue;
+    margin-top: 5vh;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

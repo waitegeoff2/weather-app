@@ -5,6 +5,8 @@ const resultsDiv = document.querySelector(".weather-results");
 
 async function displayWeather(location) {
 
+    //ADD TRY CATCH
+
     resultsDiv.innerHTML = "";
     
     // await the fetching of the API
@@ -138,27 +140,12 @@ async function displayWeather(location) {
     tmrwLow.classList.add("weatherResult");
     tmrwLow.textContent = weatherData.days[1].tempmin;
     resultsDiv.appendChild(tmrwLow);
-
-
-    console.log(weatherData);
-    console.log(weatherData.resolvedAddress);
-    console.log(weatherData.currentConditions.conditions);
-    console.log(weatherData.currentConditions.temp);
-    console.log(weatherData.currentConditions.feelslike);
-    console.log(weatherData.currentConditions.precipprob);
-    console.log(weatherData.currentConditions.uvindex);
-    console.log(weatherData.currentConditions.sunrise);
-    console.log(weatherData.currentConditions.sunset);
-    console.log(weatherData.days[1].tempmax);
-    console.log(weatherData.days[1].tempmin);
 }
 
 searchButton.addEventListener("click", () => {
     let location = searchBar.value;
     displayWeather(location);
 })
-
-displayWeather("toronto");
 
 // search.addEventListener("click", () => {
 //     let searchInput = input.value;
