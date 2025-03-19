@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simple weather app</title>
 </head>
 <body>
     <div class="title">
@@ -13,6 +13,12 @@
     <div class="search-location">
         <input type="text" class="search-input">
         <button class="weather-search">Find weather in your location</button>
+        <div class="checkboxes">
+            <label for="fCheck" class="checkboxLabel">Fahrenheit</label>
+            <input id="fCheck" type="checkbox" class="fCheck">
+            <label for="cCheck" class="checkboxLabel">Celsius</label>
+            <input id="cCheck" type="checkbox" class="cCheck" checked>
+        </div>
     </div>
     <div class="weather-results"></div>
     

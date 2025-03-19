@@ -35,6 +35,11 @@ body {
     font-size: 15px;
 }
 
+.checkboxes {
+    display: flex;
+    gap: 3px;
+}
+
 .weather-search {
     padding: 2px;
     background-color: rgb(65, 65, 245);
