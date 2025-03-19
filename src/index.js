@@ -14,6 +14,7 @@ async function getWeather(location) {
         // json method returns a promise, we await it to get the json data and turn it into a weather object
         const weatherData = await response.json();
 
+        //fetch fahrenheit data
         const fahrenheitResponse = await fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/' + location + '?unitGroup=us&key=8AP37SHUDAWNDGZNJLSLFKNE9&contentType=json', {mode: 'cors'})
         const fahrenheitData = await fahrenheitResponse.json();
 
@@ -29,11 +30,6 @@ async function getWeather(location) {
 }
 
 function appendDOM(weatherData, fahrenheitData, weatherGIPHY) {
-
-    //ADD THE DOM OBJECTS HERE
-
-        console.log(fahrenheitData);
-
             //location
 
             const thisLocationTitle = document.createElement("div");
@@ -61,7 +57,6 @@ function appendDOM(weatherData, fahrenheitData, weatherGIPHY) {
             //temperature
 
             if(celsiusBox.checked) {
-            
                 const tempTitle = document.createElement("div");
                 tempTitle.classList.add("weatherLabel");
                 tempTitle.textContent = "Current Temperature";
@@ -71,7 +66,6 @@ function appendDOM(weatherData, fahrenheitData, weatherGIPHY) {
                 currentTemp.classList.add("weatherResult");
                 currentTemp.textContent = weatherData.currentConditions.temp;
                 resultsDiv.appendChild(currentTemp);
-
             } else if(fahrenheitBox.checked) {
                 const fahrTitle = document.createElement("div");
                 fahrTitle.classList.add("weatherLabel");
